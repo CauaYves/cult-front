@@ -68,6 +68,13 @@ const ResetStyle = createGlobalStyle`
 		font-size: 17px;
 		font-weight: 800;
 	}
+	h2{
+		font-family: Inter;
+		font-size: 14.13px;
+		font-style: normal;
+		font-weight: 800;
+		line-height: normal;
+	}
 	p{
 		color: #555353;
 		font-size: 11.636px;
