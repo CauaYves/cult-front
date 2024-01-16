@@ -20,6 +20,9 @@ const Main = styled(Link)`
 
   cursor: pointer;
 
+  h3 {
+    font-size: 12px;
+  }
   &:active {
     opacity: 0.9;
   }
