@@ -5,8 +5,20 @@ import suport from "../../../public/img/icon_support.svg";
 import exit from "../../../public/img/icon_exit.svg";
 import colors from "../../constants/colors";
 import Link from "next/link";
+import useLocalStorage from "@/hooks/useLocalStorage";
+import { useRouter } from "next/router";
+import Cookies from "js-cookie";
 
 export default function Navbar() {
+  const Router = useRouter();
+  const [token, setToken] = useLocalStorage("token", "");
+
+  function logout() {
+    setToken("");
+    Cookies.remove("token");
+    Router.push("/CadAcesso");
+  }
+
   return (
     <Main>
       <SubMain>
@@ -21,10 +33,10 @@ export default function Navbar() {
             <h3>Suporte</h3>
             <Image src={suport} alt="suporte" />
           </Link>
-          <Link href="/CadAcesso">
+          <LogoutButton onClick={logout}>
             <h3>Sair</h3>
             <Image src={exit} alt="suporte" />
-          </Link>
+          </LogoutButton>
         </Right>
       </SubMain>
     </Main>
@@ -76,5 +88,19 @@ const Right = styled.div`
   }
   h3 {
     margin-right: 5px;
+  }
+`;
+
+const LogoutButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  h3 {
+    color: white;
+    &:hover {
+      font-weight: 600;
+    }
   }
 `;
