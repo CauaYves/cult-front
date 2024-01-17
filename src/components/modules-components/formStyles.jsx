@@ -33,7 +33,6 @@ const styles = {
   `,
 
   FormControlStyled: styled(FormControl)`
-    margin: 30px 0px;
     padding: 0px 5px;
     width: 33%;
     div {
@@ -76,7 +75,7 @@ const styles = {
     justify-content: space-between;
 
     background-color: ${colors.fifty};
-    div {
+    div > p {
       color: white;
     }
     div:first-child {

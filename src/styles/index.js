@@ -84,6 +84,36 @@ const ResetStyle = createGlobalStyle`
 		color: black;
 	}
 	/* tipografia */
+
+	/* reset para navegadores */
+	
+
+	/* Para navegadores baseados no Chromium (como o Google Chrome) */
+		/* Cor de fundo do autocomplete */
+/* Para todos os navegadores */
+		input:-webkit-autofill,
+		input:-webkit-autofill:hover, 
+		input:-webkit-autofill:focus,
+		input:-webkit-autofill:active {
+			-webkit-box-shadow: none !important;
+			transition: background-color 5000s ease-in-out 0s; /* Adiciona um tempo de transição para evitar mudanças bruscas */
+		}
+
+		/* Para navegadores baseados no Chromium (como o Google Chrome) */
+		input:-webkit-autofill {
+			background-color: transparent !important;
+		}
+
+		/* Para outros navegadores que suportam o autocompletar */
+		input:-moz-autofill {
+			background-color: transparent !important;
+		}
+
+		/* Para navegadores mais recentes que suportam o autocompletar */
+		input:-ms-input-placeholder {
+			background-color: transparent !important;
+		}
+	/* reset para navegadores */
 `;
 
 export default ResetStyle;

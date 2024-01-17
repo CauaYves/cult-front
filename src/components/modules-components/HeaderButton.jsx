@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import breakpoint from "@/styles/breakpoint";
 
 export default function HeaderButton({ text, isSelected }) {
   return (
@@ -10,15 +11,24 @@ export default function HeaderButton({ text, isSelected }) {
 }
 
 const Main = styled(Link)`
+  max-height: 90%;
+
   background-color: #ffff;
   opacity: ${(props) => (props.$isSelected ? 0.9 : null)};
 
   padding: 10px;
-  height: 60%;
   border-radius: 5px;
-  margin-right: 10px;
+  margin: 5px 10px 5px 0px;
 
   cursor: pointer;
+
+  @media (max-width: ${breakpoint}) {
+    width: 100px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
   h3 {
     font-size: 12px;

@@ -13,12 +13,20 @@ export default function FileRow({ id, name, extension, files, setFiles }) {
 
   return (
     <Main>
-      <div>{name}</div>
+      <div>
+        <p>{name}</p>
+      </div>
       <Infos>
-        <div>{type}</div>
-        <div>{format}</div>
+        <div>
+          <p>{type}</p>
+        </div>
+        <div>
+          <p>{format}</p>
+        </div>
       </Infos>
-      <ButtonDelete onClick={deleteFile}>excluir</ButtonDelete>
+      <ButtonDelete onClick={deleteFile}>
+        <p>excluir</p>
+      </ButtonDelete>
     </Main>
   );
 }
@@ -36,6 +44,7 @@ const Main = styled.div`
 
   background-color: #d9d9d9;
   box-shadow: 1px 1px 2px #0000001f;
+
   &:hover {
     opacity: 0.9;
   }

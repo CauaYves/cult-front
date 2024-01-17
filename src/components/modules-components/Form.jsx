@@ -80,12 +80,20 @@ export default function MyForm({ allowFiles }) {
                   <FileInputComponent />
                   <styles.TableFiles>
                     <styles.Caption>
-                      <div>Nome</div>
+                      <div>
+                        <p>Nome</p>
+                      </div>
                       <styles.InfosCaption>
-                        <div>Tipo</div>
-                        <div>Formato</div>
+                        <div>
+                          <p>Tipo</p>
+                        </div>
+                        <div>
+                          <p>Formato</p>
+                        </div>
                       </styles.InfosCaption>
-                      <div>ações</div>
+                      <div>
+                        <p>ações</p>
+                      </div>
                     </styles.Caption>
                     <styles.InfoFiles>
                       {files.map((file, index) => {

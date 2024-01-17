@@ -7,7 +7,6 @@ export async function middleware(request) {
   const token = tokenString?.replace(/"/g, '')
 
   const signInURL = new URL("/", request.url)
-  console.log(signInURL.href)
   if(!token){
     return NextResponse.redirect(signInURL.href);
   }

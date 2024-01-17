@@ -26,16 +26,14 @@ const Main = styled(Link)`
   box-shadow: 0px 5px 10px #0000002e;
   height: 160px;
   width: 150px;
-
+  margin: 5px 0px;
   > div {
     height: 100%;
     width: 100%;
     cursor: pointer;
 
     @media (max-width: ${breakpoint}) {
-      margin: 40px 0px;
       width: 150px;
-      height: 100px;
     }
   }
 `;
