@@ -5,8 +5,18 @@ import MainHeader from "@/components/modules-components/MainHeader";
 import HeaderButton from "@/components/modules-components/HeaderButton";
 import Title from "@/components/modules-components/Title";
 import brush from "../../../public/img/icon_brush.svg";
+import { useState } from "react";
+import UnderConstruction from "@/components/UnderConstruction";
 
 export default function GaleriaExpoMuni() {
+  const [selectedModule, setSelectedModule] = useState("Cadastrodeexpositores");
+  const organismObjects = {
+    Cadastrodeexpositores: <Form allowFiles={true} />,
+    Cadastrodeexpositoresereservas: <UnderConstruction />,
+    Agendadeexposicoes: <UnderConstruction />,
+    Controledecontribuicoes: <UnderConstruction />,
+  };
+
   return (
     <DashboardLayout>
       <Main>
@@ -16,12 +26,24 @@ export default function GaleriaExpoMuni() {
           icon={brush}
         />
         <MainHeader>
-          <HeaderButton text="Cadastro de expositores" isSelected={true} />
-          <HeaderButton text="Cadastro de expositores e reservas" />
-          <HeaderButton text="Agenda de exposições" />
-          <HeaderButton text="Controle de contribuições" />
+          <HeaderButton
+            text="Cadastro de expositores"
+            setValue={() => setSelectedModule("Cadastrodeexpositores")}
+          />
+          <HeaderButton
+            text="Cadastro de expositores e reservas"
+            setValue={() => setSelectedModule("Cadastrodeexpositoresereservas")}
+          />
+          <HeaderButton
+            text="Agenda de exposições"
+            setValue={() => setSelectedModule("Agendadeexposicoes")}
+          />
+          <HeaderButton
+            text="Controle de contribuições"
+            setValue={() => setSelectedModule("Controledecontribuicoes")}
+          />
         </MainHeader>
-        <Form allowFiles={true} />
+        {organismObjects[selectedModule]}
       </Main>
     </DashboardLayout>
   );

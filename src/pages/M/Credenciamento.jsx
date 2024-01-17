@@ -5,28 +5,54 @@ import MainHeader from "@/components/modules-components/MainHeader";
 import HeaderButton from "@/components/modules-components/HeaderButton";
 import Title from "@/components/modules-components/Title";
 import list from "../../../public/img/icon_list.svg";
+import { useState } from "react";
+import UnderConstruction from "@/components/UnderConstruction";
 
 export default function Credenciamento() {
+  const [selectedModule, setSelectedModule] = useState(
+    "Cadastrodeagentesculturais"
+  );
+  const organismObjects = {
+    Cadastrodeagentesculturais: <Form allowFiles={true} />,
+    Cadastrodeeditaiseinscricoes: <UnderConstruction />,
+    Publicacoes: <UnderConstruction />,
+    AvaliacoesePareceres: <UnderConstruction />,
+    PrestaçãodeContas: <UnderConstruction />,
+    AtosLegais: <UnderConstruction />,
+  };
+
   return (
     <DashboardLayout>
       <Main>
-        <Title
-          title={"CREDENCIAMENTO"}
-          subtitle={"Cadastro de agentes culturais"}
-          icon={list}
-        />
+        <Title title={"CREDENCIAMENTO"} subtitle={selectedModule} icon={list} />
         <MainHeader>
           <HeaderButton
             text="Cadastro de agentes culturais"
-            isSelected={true}
+            setValue={() => setSelectedModule("Cadastrodeagentesculturais")}
+            selectedModule={selectedModule}
           />
-          <HeaderButton text="Cadastro de editais e inscrições" />
-          <HeaderButton text="Publicações" />
-          <HeaderButton text="Avaliações e Pareceres" />
-          <HeaderButton text="Prestação de Contas" />
-          <HeaderButton text="Atos Legais" />
+          <HeaderButton
+            text="Cadastro de editais e inscrições"
+            setValue={() => setSelectedModule("Cadastrodeeditaiseinscricoes")}
+          />
+          <HeaderButton
+            text="Publicações"
+            setValue={() => setSelectedModule("Publicacoes")}
+          />
+          <HeaderButton
+            text="Avaliações e Pareceres"
+            setValue={() => setSelectedModule("AvaliacoesePareceres")}
+          />
+          <HeaderButton
+            text="Prestação de Contas"
+            setValue={() => setSelectedModule("PrestaçãodeContas")}
+          />
+          <HeaderButton
+            text="Atos Legais"
+            setValue={() => setSelectedModule("AtosLegais")}
+          />
         </MainHeader>
-        <Form allowFiles={true} />
+        {organismObjects[selectedModule]}
       </Main>
     </DashboardLayout>
   );

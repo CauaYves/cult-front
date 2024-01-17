@@ -1,20 +1,22 @@
 import styled from "styled-components";
-import Link from "next/link";
 import breakpoint from "@/styles/breakpoint";
 
-export default function HeaderButton({ text, isSelected }) {
+export default function HeaderButton({ text, setValue }) {
   return (
-    <Main $isSelected={isSelected} href="/M/EmConstrucao">
+    <Main
+      onClick={() => {
+        setValue(text);
+      }}
+    >
       <h3>{text}</h3>
     </Main>
   );
 }
 
-const Main = styled(Link)`
+const Main = styled.div`
   max-height: 90%;
 
   background-color: #ffff;
-  opacity: ${(props) => (props.$isSelected ? 0.9 : null)};
 
   padding: 10px;
   border-radius: 5px;

@@ -34,5 +34,13 @@ const handleInputChange = async (e, handleChange, setValues, values) => {
     }
 };
 
-  export {handleInputChange, handleSubmit}
+function formatString(input) {
+  const withoutSpaces = input.replace(/\s+/g, '');
+
+  const withoutSpecialsCharacteres = withoutSpaces.replace(/[^\w\s]/gi, '');
+
+  return withoutSpecialsCharacteres;
+}
+
+  export {handleInputChange, handleSubmit, formatString}
 

@@ -5,6 +5,6 @@ export async function getCep(cep) {
         const promise = await api.get(`/enrollment/cep?cep=${cep}`)
         return promise.data
     }catch(error) {
-        console.log(error)
+        console.log("cep inserido está incorreto!")
     }
 }

@@ -5,8 +5,19 @@ import MainHeader from "@/components/modules-components/MainHeader";
 import HeaderButton from "@/components/modules-components/HeaderButton";
 import Title from "@/components/modules-components/Title";
 import home from "../../../public/img/icon_home.svg";
+import { useState } from "react";
+import UnderConstruction from "@/components/UnderConstruction";
 
 export default function MuseuHistArq() {
+  const [selectedModule, setSelectedModule] = useState("Cadastrobasico"); //TODO checar se allowFiles é false mesmo
+  const organismObjects = {
+    Cadastrobasico: <Form allowFiles={false} />,
+    Acervofisico: <UnderConstruction />,
+    Cadastrodecatalogacao: <UnderConstruction />,
+    Acervodigital: <UnderConstruction />,
+    ControledeContribuicoes: <UnderConstruction />,
+  };
+
   return (
     <DashboardLayout>
       <Main>
@@ -16,13 +27,29 @@ export default function MuseuHistArq() {
           icon={home}
         />
         <MainHeader>
-          <HeaderButton text="Cadastro básico" isSelected={true} />
-          <HeaderButton text="Acervo físico" />
-          <HeaderButton text="Cadastro de catalogação" />
-          <HeaderButton text="Acervo digital" />
-          <HeaderButton text="Controle de Contribuições" />
+          <HeaderButton
+            text="Cadastro básico"
+            isSelected={true}
+            setValue={() => setSelectedModule("Cadastrobasico")}
+          />
+          <HeaderButton
+            text="Acervo físico"
+            setValue={() => setSelectedModule("Acervofisico")}
+          />
+          <HeaderButton
+            text="Cadastro de catalogação"
+            setValue={() => setSelectedModule("Cadastrodecatalogacao")}
+          />
+          <HeaderButton
+            text="Acervo digital"
+            setValue={() => setSelectedModule("Acervodigital")}
+          />
+          <HeaderButton
+            text="Controle de Contribuições"
+            setValue={() => setSelectedModule("ControledeContribuicoes")}
+          />
         </MainHeader>
-        <Form allowFiles={false} />
+        {organismObjects[selectedModule]}
       </Main>
     </DashboardLayout>
   );
