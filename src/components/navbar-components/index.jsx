@@ -11,11 +11,10 @@ import Cookies from "js-cookie";
 
 export default function Navbar() {
   const Router = useRouter();
-  const [token, setToken] = useLocalStorage("token", "");
+  const [token, setToken, removeToken] = useLocalStorage("token", "");
 
   function logout() {
-    setToken("");
-    Cookies.remove("token");
+    removeToken();
     Router.push("/CadAcesso");
   }
 
@@ -30,11 +29,11 @@ export default function Navbar() {
 
         <Right>
           <Link href="/M/EmConstrucao">
-            <h3>Suporte</h3>
+            <p>Suporte</p>
             <Image src={suport} alt="suporte" />
           </Link>
           <LogoutButton onClick={logout}>
-            <h3>Sair</h3>
+            <p>Sair</p>
             <Image src={exit} alt="suporte" />
           </LogoutButton>
         </Right>
@@ -86,8 +85,9 @@ const Right = styled.div`
   a:hover {
     font-weight: 600;
   }
-  h3 {
+  p {
     margin-right: 5px;
+    color: white;
   }
 `;
 
@@ -97,7 +97,7 @@ const LogoutButton = styled.div`
   justify-content: center;
 
   cursor: pointer;
-  h3 {
+  p {
     color: white;
     &:hover {
       font-weight: 600;
