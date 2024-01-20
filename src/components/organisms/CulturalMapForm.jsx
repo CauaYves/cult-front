@@ -1,6 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { Formik, Field, ErrorMessage, Form } from "formik";
+import { fields } from "@/components/molecules";
+import { culturalMapSchema } from "@/schemas/form-validation-schema";
+import { ToastContainer } from "react-toastify";
+import Link from "next/link";
+import blackarrow from "../../../public/icon_blackarrow.svg";
+import Image from "next/image";
+import { DateInput } from "../atoms";
+import colors from "@/constants/colors";
+import breakpoint from "@/styles/breakpoint";
 import {
   TextField,
   Button,
@@ -8,87 +17,12 @@ import {
   Typography,
   FormControl,
 } from "@mui/material";
-import { culturalMapSchema } from "@/schemas/form-validation-schema";
 import {
   handleInputChange,
   handleSubmit,
 } from "@/components/modules-components/utils";
-import { ToastContainer } from "react-toastify";
-import Link from "next/link";
-import blackarrow from "../../../public/icon_blackarrow.svg";
-import Image from "next/image";
-import {
-  CepInput,
-  CpfInput,
-  RgRneInput,
-  PhoneInput,
-  SelectInput,
-  DateInput,
-} from "../atoms";
-import colors from "@/constants/colors";
-import breakpoint from "@/styles/breakpoint";
 
 function CulturalMapForm() {
-  const fields = [
-    {
-      name: "username",
-      label: "Nome completo",
-      component: TextField,
-      variant: "outlined",
-    },
-    { name: "cpf", label: "CPF", component: CpfInput, type: "cpf" },
-    { name: "rg", label: "RG/RNE", component: RgRneInput, variant: "outlined" },
-    { name: "cep", label: "CEP", component: CepInput, variant: "outlined" },
-    {
-      name: "city",
-      label: "Cidade",
-      component: TextField,
-      variant: "outlined",
-    },
-    {
-      name: "neighborhood",
-      label: "Bairro",
-      component: TextField,
-      variant: "outlined",
-    },
-    {
-      name: "state",
-      label: "Estado",
-      component: TextField,
-      variant: "outlined",
-    },
-    {
-      name: "issuingState",
-      label: "Estado emissor",
-      component: TextField,
-      variant: "outlined",
-    },
-    {
-      name: "phone",
-      label: "Telefone",
-      component: PhoneInput,
-      variant: "outlined",
-    },
-    {
-      name: "street",
-      label: "Rua/N",
-      component: TextField,
-      variant: "outlined",
-    },
-    {
-      name: "birthDate",
-      label: "Data de nascimento",
-      component: DateInput,
-      variant: "outlined",
-    },
-    {
-      name: "classPerson",
-      label: "Classificação do indivíduo",
-      component: SelectInput,
-      variant: "outlined",
-    },
-  ];
-
   return (
     <Formik
       initialValues={{

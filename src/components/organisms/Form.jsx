@@ -6,7 +6,7 @@ import { formValidationSchema } from "@/schemas/form-validation-schema";
 import { handleInputChange } from "@/components/modules-components/utils";
 import { useFileContext } from "../../contexts/FileContext";
 import { ToastContainer, toast } from "react-toastify";
-import fields from "@/components/modules-components/fieldsObject";
+import { fields } from "@/components/molecules";
 import blackarrow from "public/icon_blackarrow.svg";
 import Link from "next/link";
 import { FileInputComponent, FileRow } from "../molecules";

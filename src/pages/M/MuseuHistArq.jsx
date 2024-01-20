@@ -1,13 +1,12 @@
-import { Form } from "formik";
 import DashboardLayout from "@/layout/Dashboard";
 import styled from "styled-components";
-import MainHeader from "@/components/modules-components/MainHeader";
-import HeaderButton from "@/components/modules-components/HeaderButton";
-import home from "public/icon_home.svg";
+import { MainHeader } from "@/components/atoms";
 import { useState } from "react";
 import { Title } from "@/components/atoms";
 import { UnderConstruction } from "@/components/organisms";
 import { DataForm } from "@/components/organisms";
+import { HeaderButton } from "@/components/molecules/";
+import home from "public/icon_home.svg";
 
 export default function MuseuHistArq() {
   const [selectedModule, setSelectedModule] = useState("Cadastrobasico");

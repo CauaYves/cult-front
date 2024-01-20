@@ -1,7 +1,7 @@
 import DashboardLayout from "@/layout/Dashboard";
 import styled from "styled-components";
-import MainHeader from "@/components/modules-components/MainHeader";
-import HeaderButton from "@/components/modules-components/HeaderButton";
+import { MainHeader } from "@/components/atoms";
+import { HeaderButton } from "@/components/molecules/";
 import book from "public/icon_book.svg";
 import { useState } from "react";
 import { UnderConstruction } from "@/components/organisms";

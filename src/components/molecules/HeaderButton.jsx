@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import breakpoint from "@/styles/breakpoint";
 
-export default function HeaderButton({ text, setValue }) {
+function HeaderButton({ text, setValue }) {
   return (
     <Main
       onClick={() => {
@@ -39,3 +39,5 @@ const Main = styled.div`
     opacity: 0.9;
   }
 `;
+
+export { HeaderButton };

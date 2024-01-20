@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import colors from "@/constants/colors";
-export default function MainHeader({ children }) {
+function MainHeader({ children }) {
   return <Main>{children}</Main>;
 }
 
@@ -18,3 +18,5 @@ const Main = styled.div`
   display: flex;
   align-items: center;
 `;
+
+export { MainHeader };
