@@ -3,14 +3,13 @@ import Image from "next/image";
 import { Formik, Field } from "formik";
 import { Button, FormLabel } from "@mui/material";
 import { formValidationSchema } from "@/schemas/form-validation-schema";
-import { handleInputChange } from "@/components/modules-components/utils";
 import { useFileContext } from "../../contexts/FileContext";
 import { ToastContainer, toast } from "react-toastify";
-import { fields } from "@/components/molecules";
 import blackarrow from "public/icon_blackarrow.svg";
 import Link from "next/link";
 import { FileInputComponent, FileRow } from "../molecules";
-import { styles } from "@/components/molecules";
+import { handleInputChange } from "@/components/utils";
+import { styles, fields } from "@/components/molecules";
 function DataForm({ allowFiles }) {
   const { files, setFiles } = useFileContext();
 

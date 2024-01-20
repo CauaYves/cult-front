@@ -1,26 +1,14 @@
 import React from "react";
-import styled from "styled-components";
-import { Formik, Field, ErrorMessage, Form } from "formik";
-import { fields } from "@/components/molecules";
+import { Formik, Field } from "formik";
 import { culturalMapSchema } from "@/schemas/form-validation-schema";
 import { ToastContainer } from "react-toastify";
 import Link from "next/link";
 import blackarrow from "../../../public/icon_blackarrow.svg";
 import Image from "next/image";
 import { DateInput } from "../atoms";
-import colors from "@/constants/colors";
-import breakpoint from "@/styles/breakpoint";
-import {
-  TextField,
-  Button,
-  FormLabel,
-  Typography,
-  FormControl,
-} from "@mui/material";
-import {
-  handleInputChange,
-  handleSubmit,
-} from "@/components/modules-components/utils";
+import { TextField, Button, FormLabel, Typography } from "@mui/material";
+import { fields, styles } from "@/components/molecules";
+import { handleInputChange, handleSubmit } from "@/components/utils";
 
 function CulturalMapForm() {
   return (
@@ -45,7 +33,7 @@ function CulturalMapForm() {
       onSubmit={handleSubmit}
     >
       {({ isSubmitting, handleChange, setValues, values }) => (
-        <Main>
+        <styles.Main>
           <ToastContainer
             position="top-right"
             autoClose={5000}
@@ -58,23 +46,23 @@ function CulturalMapForm() {
             pauseOnHover
             theme="colored"
           />
-          <FormWrapper>
-            <FormContainer>
-              <Block>
-                <FormControlStyled>
+          <styles.FormWrapper>
+            <styles.FormContainer>
+              <styles.Block>
+                <styles.FormControlStyled>
                   <FormLabel>Data do evento</FormLabel>
                   <Field name="eventDate" as={DateInput} variant="outlined" />
-                  <Warn name="eventDate" component="p" />
-                </FormControlStyled>
-                <FormControlStyled>
+                  <styles.Warn name="eventDate" component="p" />
+                </styles.FormControlStyled>
+                <styles.FormControlStyled>
                   <FormLabel>Nome do evento</FormLabel>
                   <Field name="eventName" as={TextField} variant="outlined" />
-                  <Warn name="eventName" component="p" />
-                </FormControlStyled>
+                  <styles.Warn name="eventName" component="p" />
+                </styles.FormControlStyled>
                 <Typography variant="h6">Dados do anfitrião</Typography>
-              </Block>
+              </styles.Block>
               {fields.map((field) => (
-                <FormControlStyled key={field.name}>
+                <styles.FormControlStyled key={field.name}>
                   <FormLabel>{field.label}</FormLabel>
                   <Field
                     name={field.name}
@@ -85,12 +73,12 @@ function CulturalMapForm() {
                       handleInputChange(e, handleChange, setValues, values)
                     }
                   />
-                  <Warn name={field.name} component="p" />
-                </FormControlStyled>
+                  <styles.Warn name={field.name} component="p" />
+                </styles.FormControlStyled>
               ))}
-            </FormContainer>
+            </styles.FormContainer>
             <br />
-            <ButtonWrapper>
+            <styles.ButtonWrapper>
               <Button
                 variant="contained"
                 type="submit"
@@ -99,130 +87,18 @@ function CulturalMapForm() {
               >
                 Salvar
               </Button>
-            </ButtonWrapper>
-            <AbsoluteContainer>
+            </styles.ButtonWrapper>
+            <styles.AbsoluteContainer>
               <Link href="/Home">
                 <Image src={blackarrow} alt="Voltar" />
                 <h3>Voltar</h3>
               </Link>
-            </AbsoluteContainer>
-          </FormWrapper>
-        </Main>
+            </styles.AbsoluteContainer>
+          </styles.FormWrapper>
+        </styles.Main>
       )}
     </Formik>
   );
 }
-
-const Main = styled.div`
-  width: 100dvw;
-  padding: 10px;
-`;
-const Warn = styled(ErrorMessage)`
-  font-size: 10px;
-  color: #f80000;
-  position: absolute;
-  right: 30px;
-  bottom: 10px;
-`;
-
-const FormWrapper = styled(Form)`
-  max-width: 1200px;
-  width: 90vw;
-  padding: 20px;
-  border-radius: 5px;
-
-  width: fit-content;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-
-  background-color: #ffff;
-  box-shadow: 3px 3px 9px #0000002f;
-`;
-
-const FormControlStyled = styled(FormControl)`
-  padding: 0px 5px;
-  width: 33%;
-  div {
-    width: calc(100% - 10px);
-    height: 25px;
-  }
-  @media (max-width: ${breakpoint}) {
-    width: 100%;
-  }
-`;
-
-const FormContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
-const FileContainer = styled.div`
-  margin: 10px 0px 0px 0px;
-  width: 100%;
-
-  padding: 10px 0px;
-  margin: 10px 0px;
-`;
-
-const InfoFiles = styled.div`
-  width: 100%;
-`;
-
-const Caption = styled.div`
-  height: 30px;
-  width: 100%;
-  margin: 10px 0px;
-  border-radius: 5px 5px 0px 0px;
-  padding: 0px 10px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  background-color: ${colors.fifty};
-  div > p {
-    color: white;
-  }
-  div:first-child {
-    width: 50%;
-  }
-`;
-
-const InfosCaption = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  width: 30%;
-`;
-const TableFiles = styled.div`
-  border: 1px solid #000000;
-  border-top: none;
-  border-radius: 5px;
-
-  padding: 0px 0px 20px 0px;
-`;
-const Block = styled.div`
-  width: 100%;
-  h6 {
-    margin: 15px 0px 15px 5px;
-  }
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: end;
-  margin-top: 10px;
-`;
-
-const AbsoluteContainer = styled.div`
-  width: min-content;
-  a {
-    display: flex;
-  }
-`;
 
 export { CulturalMapForm };
