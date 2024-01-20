@@ -1,12 +1,12 @@
-import CulturalMapForm from "@/components/modules-components/CulturalMapForm";
 import DashboardLayout from "@/layout/Dashboard";
 import styled from "styled-components";
 import MainHeader from "@/components/modules-components/MainHeader";
 import HeaderButton from "@/components/modules-components/HeaderButton";
-import Title from "@/components/modules-components/Title";
-import pointermap from "../../../public/img/icon_pointermap.svg";
+import pointermap from "public/icon_pointermap.svg";
 import { useState } from "react";
-import UnderConstruction from "@/components/UnderConstruction";
+import { UnderConstruction } from "@/components/organisms";
+import { Title } from "@/components/atoms";
+import { CulturalMapForm } from "@/components/organisms/CulturalMapForm";
 
 export default function MapaCultReg() {
   const [selectedModule, setSelectedModule] = useState("Cadastrodeeventos");

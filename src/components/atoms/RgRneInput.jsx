@@ -1,12 +1,12 @@
 import InputMask from "react-input-mask";
 import { TextField } from "@mui/material";
-
-export default function CpfInput(props) {
+function RgRneInput(props) {
   return (
     <>
-      <InputMask mask="999.999.999-99" {...props}>
+      <InputMask mask="99.999.999-9" {...props}>
         {(inputProps) => <TextField {...inputProps} />}
       </InputMask>
     </>
   );
 }
+export { RgRneInput };

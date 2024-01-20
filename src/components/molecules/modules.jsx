@@ -3,9 +3,9 @@ import Image from "next/image";
 import colors from "@/constants/colors";
 import breakpoint from "@/styles/breakpoint";
 import Link from "next/link";
-import arrow from "../../../public/img/icon_arrow.svg";
+import arrow from "public/icon_arrow.svg";
 
-export default function Modules({ route, moduleName, icon }) {
+function Modules({ route, moduleName, icon }) {
   return (
     <Main href={route}>
       <div>
@@ -69,3 +69,5 @@ const BottomModule = styled.div`
     color: white;
   }
 `;
+
+export { Modules };

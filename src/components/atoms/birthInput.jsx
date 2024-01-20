@@ -1,12 +1,13 @@
 import InputMask from "react-input-mask";
 import { TextField } from "@mui/material";
 
-export default function CepInput(props) {
+function DateInput(props) {
   return (
     <>
-      <InputMask mask="99999-999" {...props}>
+      <InputMask mask="99/99/9999" {...props}>
         {(inputProps) => <TextField {...inputProps} />}
       </InputMask>
     </>
   );
 }
+export { DateInput };

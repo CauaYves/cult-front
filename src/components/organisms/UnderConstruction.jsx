@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import alert from "../../public/img/icon_alert.svg";
-import arrow from "../../public/img/icon_blackarrow.svg";
+import alert from "public/icon_alert.svg";
+import arrow from "public/icon_blackarrow.svg";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function UnderConstruction() {
+function UnderConstruction() {
   return (
     <UnderConstructionMain>
       <AlertWindow>
@@ -55,3 +55,5 @@ const AlertWindow = styled.div`
     align-items: center;
   }
 `;
+
+export { UnderConstruction };

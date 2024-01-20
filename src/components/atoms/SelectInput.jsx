@@ -19,5 +19,4 @@ const SelectInput = ({ label, ...props }) => {
   );
 };
 
-export default SelectInput;
-
+export { SelectInput };

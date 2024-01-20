@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import Button from "@mui/material/Button";
 import Input from "@mui/material/Input";
 import { useFileContext } from "../../contexts/FileContext";
 
-export default function FileInputComponent() {
+function FileInputComponent() {
   const { files, setFiles } = useFileContext();
 
   const handleFileChange = (event) => {
@@ -34,3 +34,5 @@ export default function FileInputComponent() {
     </div>
   );
 }
+
+export { FileInputComponent };

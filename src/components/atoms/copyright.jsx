@@ -1,8 +1,8 @@
 import Image from "next/image";
 import styled from "styled-components";
-import logo from "../../public/img/logo.png";
+import logo from "public/logo.png";
 
-export default function Copyright() {
+function Copyright() {
   return (
     <Main>
       <Image src={logo} alt="Erudir tecnologia" width={100} priority />
@@ -29,3 +29,5 @@ const Main = styled.div`
 const Paragraph = styled.div`
   font-size: 10px;
 `;
+
+export { Copyright };

@@ -1,15 +1,14 @@
 import styled from "styled-components";
 import Image from "next/image";
-import logo from "../../../public/img/logo.png";
-import suport from "../../../public/img/icon_support.svg";
-import exit from "../../../public/img/icon_exit.svg";
+import logo from "public/logo.png";
+import suport from "public/icon_support.svg";
+import exit from "public/icon_exit.svg";
 import colors from "../../constants/colors";
 import Link from "next/link";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { useRouter } from "next/router";
-import Cookies from "js-cookie";
 
-export default function Navbar() {
+function Navbar() {
   const Router = useRouter();
   const [token, setToken, removeToken] = useLocalStorage("token", "");
 
@@ -22,8 +21,14 @@ export default function Navbar() {
     <Main>
       <SubMain>
         <Left>
-          <Link href="/Home">
-            <Image src={logo} alt="Erudir" width={150} height={105} />
+          <Link href="/Home" as="/Home">
+            <Image
+              src={logo}
+              alt="Erudir"
+              width={150}
+              height={105}
+              priority={true}
+            />
           </Link>
         </Left>
 
@@ -104,3 +109,5 @@ const LogoutButton = styled.div`
     }
   }
 `;
+
+export { Navbar };

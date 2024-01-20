@@ -1,17 +1,18 @@
-import Form from "@/components/modules-components/Form";
+import { Form } from "formik";
 import DashboardLayout from "@/layout/Dashboard";
 import styled from "styled-components";
 import MainHeader from "@/components/modules-components/MainHeader";
 import HeaderButton from "@/components/modules-components/HeaderButton";
-import Title from "@/components/modules-components/Title";
-import home from "../../../public/img/icon_home.svg";
+import home from "public/icon_home.svg";
 import { useState } from "react";
-import UnderConstruction from "@/components/UnderConstruction";
+import { Title } from "@/components/atoms";
+import { UnderConstruction } from "@/components/organisms";
+import { DataForm } from "@/components/organisms";
 
 export default function MuseuHistArq() {
-  const [selectedModule, setSelectedModule] = useState("Cadastrobasico"); //TODO checar se allowFiles é false mesmo
+  const [selectedModule, setSelectedModule] = useState("Cadastrobasico");
   const organismObjects = {
-    Cadastrobasico: <Form allowFiles={false} />,
+    Cadastrobasico: <DataForm allowFiles={false} />,
     Acervofisico: <UnderConstruction />,
     Cadastrodecatalogacao: <UnderConstruction />,
     Acervodigital: <UnderConstruction />,

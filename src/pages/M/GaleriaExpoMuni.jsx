@@ -1,17 +1,17 @@
-import Form from "@/components/modules-components/Form";
 import DashboardLayout from "@/layout/Dashboard";
 import styled from "styled-components";
 import MainHeader from "@/components/modules-components/MainHeader";
 import HeaderButton from "@/components/modules-components/HeaderButton";
-import Title from "@/components/modules-components/Title";
-import brush from "../../../public/img/icon_brush.svg";
+import brush from "public/icon_brush.svg";
 import { useState } from "react";
-import UnderConstruction from "@/components/UnderConstruction";
+import { UnderConstruction } from "@/components/organisms";
+import { Title } from "@/components/atoms";
+import { DataForm } from "@/components/organisms";
 
 export default function GaleriaExpoMuni() {
   const [selectedModule, setSelectedModule] = useState("Cadastrodeexpositores");
   const organismObjects = {
-    Cadastrodeexpositores: <Form allowFiles={true} />,
+    Cadastrodeexpositores: <DataForm allowFiles={true} />,
     Cadastrodeexpositoresereservas: <UnderConstruction />,
     Agendadeexposicoes: <UnderConstruction />,
     Controledecontribuicoes: <UnderConstruction />,

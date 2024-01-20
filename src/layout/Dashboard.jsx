@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Navbar from "@/components/navbar-components";
 import colors from "@/constants/colors";
+import { Navbar } from "@/components/organisms";
 
 export default function Dashboard({ children }) {
   return (

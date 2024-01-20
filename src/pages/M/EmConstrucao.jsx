@@ -1,8 +1,8 @@
 import DashboardLayout from "@/layout/Dashboard";
 import styled from "styled-components";
-import Title from "@/components/modules-components/Title";
-import list from "../../../public/img/icon_list.svg";
-import UnderConstruction from "@/components/UnderConstruction";
+import list from "public/icon_list.svg";
+import { Title } from "@/components/atoms";
+import { UnderConstruction } from "@/components/organisms";
 
 export default function EmConstrucao() {
   return (

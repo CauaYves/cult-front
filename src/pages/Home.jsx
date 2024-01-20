@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
-import { useRouter } from "next/router";
+import React from "react";
 import DashboardLayout from "@/layout/Dashboard";
 import styled from "styled-components";
-import Modules from "@/components/home-components/modules";
-import list from "../../public/img/icon_list.svg";
-import book from "../../public/img/icon_book.svg";
-import home from "../../public/img/icon_home.svg";
-import brush from "../../public/img/icon_brush.svg";
-import pointer from "../../public/img/icon_pointermap.svg";
+import list from "public/icon_list.svg";
+import book from "public/icon_book.svg";
+import home from "public/icon_home.svg";
+import brush from "public/icon_brush.svg";
+import pointer from "public/icon_pointermap.svg";
+import { Modules } from "@/components/molecules";
 
 const DashboardPage = () => {
   return (

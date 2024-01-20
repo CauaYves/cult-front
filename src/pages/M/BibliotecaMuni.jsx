@@ -1,17 +1,17 @@
-import Form from "@/components/modules-components/Form";
 import DashboardLayout from "@/layout/Dashboard";
 import styled from "styled-components";
 import MainHeader from "@/components/modules-components/MainHeader";
 import HeaderButton from "@/components/modules-components/HeaderButton";
-import Title from "@/components/modules-components/Title";
-import book from "../../../public/img/icon_book.svg";
+import book from "public/icon_book.svg";
 import { useState } from "react";
-import UnderConstruction from "@/components/UnderConstruction";
+import { UnderConstruction } from "@/components/organisms";
+import { Title } from "@/components/atoms";
+import { DataForm } from "@/components/organisms";
 
 export default function BibliotecaMuni() {
   const [selectedModule, setSelectedModule] = useState("Cadastrodeleitores");
   const organismObjects = {
-    Cadastrodeleitores: <Form allowFiles={false} />,
+    Cadastrodeleitores: <DataForm allowFiles={false} />,
     Cadastrodeacervo: <UnderConstruction />,
     Cadastrodereservadelivros: <UnderConstruction />,
     Controledeemprestimos: <UnderConstruction />,

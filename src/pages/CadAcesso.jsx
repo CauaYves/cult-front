@@ -1,20 +1,20 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
-import user from "../../public/img/icon_user.svg";
-import lock from "../../public/img/icon_lock.svg";
-import eye from "../../public/img/icon_eye.svg";
-import logo from "../../public/img/logo.png";
-import slicedeye from "../../public/img/icon_slicedeye.svg";
+import user from "public/icon_user.svg";
+import lock from "public/icon_lock.svg";
+import eye from "public/icon_eye.svg";
+import logo from "public/logo.png";
+import slicedeye from "public/icon_slicedeye.svg";
 import { login } from "./api/login";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 import { MoonLoader } from "react-spinners";
-import Copyright from "../components/copyright";
 import breakpoint from "@/styles/breakpoint";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { checkToken } from "@/pages/api/check-token";
+import { Copyright } from "@/components/atoms/copyright";
 
 export default function Home() {
   const router = useRouter();
@@ -59,7 +59,7 @@ export default function Home() {
       <LoginBox>
         <LogoWrapper>
           <Logo>
-            <Image src={logo} alt="logo"></Image>
+            <Image src={logo} alt="logo" priority={true} />
           </Logo>
         </LogoWrapper>
         <InputWrapper>

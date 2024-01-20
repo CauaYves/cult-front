@@ -1,10 +1,12 @@
-import CpfInput from "./CpfInput";
-import RgRneInput from "./RgRneInput";
-import CepInput from "./CepInput";
-import PhoneInput from "./PhoneInput";
-import SelectInput from "./SelectInput";
+import {
+  CpfInput,
+  RgRneInput,
+  CepInput,
+  PhoneInput,
+  SelectInput,
+  DateInput
+} from "../atoms";
 import { TextField } from "@mui/material";
-import DateInput from "./birthInput";
 
 const fields = [
     {

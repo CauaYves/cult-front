@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function FileRow({ id, name, extension, files, setFiles }) {
+function FileRow({ id, name, extension, files, setFiles }) {
   const bar = extension.indexOf("/");
   let type = extension.substring(0, bar);
   let format = extension.substring(bar + 1, extension.length);
@@ -65,3 +65,5 @@ const ButtonDelete = styled.div`
     text-shadow: 0px 0px 0px #00046e;
   }
 `;
+
+export { FileRow };

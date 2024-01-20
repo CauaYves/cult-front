@@ -1,19 +1,18 @@
-import Form from "@/components/modules-components/Form";
 import DashboardLayout from "@/layout/Dashboard";
 import styled from "styled-components";
 import MainHeader from "@/components/modules-components/MainHeader";
 import HeaderButton from "@/components/modules-components/HeaderButton";
-import Title from "@/components/modules-components/Title";
-import list from "../../../public/img/icon_list.svg";
+import list from "public/icon_list.svg";
 import { useState } from "react";
-import UnderConstruction from "@/components/UnderConstruction";
+import { DataForm, UnderConstruction } from "@/components/organisms";
+import { Title } from "@/components/atoms";
 
 export default function Credenciamento() {
   const [selectedModule, setSelectedModule] = useState(
     "Cadastrodeagentesculturais"
   );
   const organismObjects = {
-    Cadastrodeagentesculturais: <Form allowFiles={true} />,
+    Cadastrodeagentesculturais: <DataForm allowFiles={true} />,
     Cadastrodeeditaiseinscricoes: <UnderConstruction />,
     Publicacoes: <UnderConstruction />,
     AvaliacoesePareceres: <UnderConstruction />,
