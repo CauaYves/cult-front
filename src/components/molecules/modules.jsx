@@ -27,6 +27,10 @@ const Main = styled(Link)`
   height: 160px;
   width: 150px;
   margin: 5px 0px;
+  &:hover {
+    margin-bottom: 10px;
+    transition: all 0.1s ease;
+  }
   > div {
     height: 100%;
     width: 100%;

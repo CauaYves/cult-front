@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "undefined/subscriptions/704dd170-ba6d-4113-ba60-389d9186c4d7/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/culturalize",
+  "appService.deploySubpath": "."
+}

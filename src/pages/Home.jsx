@@ -51,8 +51,11 @@ const ModulesWrapper = styled.div`
 `;
 
 const SubContainer = styled.div`
+  height: 200px;
+
   display: flex;
   flex-wrap: wrap;
+  align-items: end;
   justify-content: space-around;
 
   margin-top: 100px;

@@ -205,7 +205,7 @@ const ButtonWrapper = styled.div`
     width: 40%;
     height: 40%;
     border-radius: 50px;
-    color: white;
+    color: #e2e2e2;
     font-size: 17px;
     cursor: pointer;
   }

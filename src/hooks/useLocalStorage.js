@@ -1,3 +1,4 @@
+"use client"
 import { useState } from 'react';
 import Cookies from 'js-cookie';
 
@@ -18,10 +19,12 @@ export default function useLocalStorage(key, initialValue) {
     try {
       const valueToStore = value instanceof Function ? value(storedValue) : value;
       setStoredValue(valueToStore);
-      if (typeof window !== "undefined") {
-        window.localStorage.setItem(key, JSON.stringify(valueToStore));
-        Cookies.set(key, JSON.stringify(valueToStore));
-      }
+      // if (typeof window !== "undefined") {
+      //   window.localStorage.setItem(key, JSON.stringify(valueToStore));
+      //   Cookies.set(key, JSON.stringify(valueToStore));
+      // }
+      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+          Cookies.set(key, JSON.stringify(valueToStore));
     } catch (error) {
       console.log(error);
     }
@@ -29,10 +32,11 @@ export default function useLocalStorage(key, initialValue) {
 
   const removeValue = () => {
     try {
-      if (typeof window !== "undefined") {
-        window.localStorage.removeItem(key);
-        Cookies.remove(key);
-      }
+    //   if (typeof window !== "undefined") {
+    //     window.localStorage.removeItem(key);
+    //     Cookies.remove(key);
+    window.localStorage.removeItem(key);
+    Cookies.remove(key);
     } catch (error) {
       console.log(error);
     }
