@@ -1,4 +1,5 @@
 "use client";
+import StyledComponentsRegistry from "@/lib/registry";
 import { FileContextProvider } from "@/contexts/FileContext";
 import ResetStyle from "../styles/index";
 
@@ -11,7 +12,9 @@ export default function RootLayout({
     <html lang="en">
       <ResetStyle />
       <FileContextProvider>
-        <body>{children}</body>
+        <body>
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        </body>
       </FileContextProvider>
     </html>
   );
