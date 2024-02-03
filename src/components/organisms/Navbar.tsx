@@ -33,7 +33,7 @@ function Navbar() {
         </Left>
 
         <Right>
-          <Link href="/M/EmConstrucao">
+          <Link href="/M/em-construcao">
             <p>Suporte</p>
             <Image src={suport} alt="suporte" />
           </Link>
