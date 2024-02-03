@@ -2,13 +2,15 @@
 const nextConfig = {
   async redirects() {
     return [
-      // Basic redirect
       {
         source: '/',
         destination: '/cad-acesso',
         permanent: true,
       },
     ]
+  },
+  compiler: {
+    styledComponents: true,
   },
 };
 
