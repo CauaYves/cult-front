@@ -1,13 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-export async function redirects() {
-  return [
-    {
-      source: '/',
-      destination: '/cad-acesso',
-      permanent: true,
-    },
-  ];
-}
+const nextConfig = {
+  async redirects() {
+    return [
+      // Basic redirect
+      {
+        source: '/',
+        destination: '/cad-acesso',
+        permanent: true,
+      },
+    ]
+  },
+};
 
 export default nextConfig;
