@@ -1,23 +1,18 @@
 import { FieldHookConfig, useField } from "formik";
-import { Select, MenuItem, InputLabel, FormControl } from "@mui/material";
-import React from "react";
+import { Select, MenuItem, FormControl } from "@mui/material";
 
-interface SelectInputProps {
-  label: string;
-  props: FieldHookConfig<SelectInputProps>;
-}
-
-const SelectInput = ({ label, ...props }: SelectInputProps) => {
-  const [field, _meta, helpers] = useField(props.props);
-
-  const handleChange = (event: any) => {
-    helpers.setValue(event.target.value);
-  };
+const SelectInput = ({ ...props }: FieldHookConfig<string>) => {
+  const [field, meta, helpers] = useField(props);
 
   return (
     <FormControl>
-      <InputLabel>{label}</InputLabel>
-      <Select {...field} label={label} onChange={handleChange}>
+      <Select
+        {...field}
+        label="Selecione o tipo"
+        onChange={(e) => {
+          helpers.setValue(e.target.value);
+        }}
+      >
         <MenuItem value="fisic">Pessoa física</MenuItem>
         <MenuItem value="legal">Pessoa jurídica</MenuItem>
       </Select>

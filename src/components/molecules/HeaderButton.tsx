@@ -5,6 +5,7 @@ import { Dispatch, SetStateAction } from "react";
 interface HeaderButtonProps {
   text: string;
   setValue: Dispatch<SetStateAction<string>>;
+  selectedModule: string;
 }
 
 function HeaderButton({ text, setValue }: HeaderButtonProps) {

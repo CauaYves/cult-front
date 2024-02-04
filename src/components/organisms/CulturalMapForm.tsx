@@ -30,7 +30,10 @@ function CulturalMapForm() {
         issuingState: "",
       }}
       validationSchema={culturalMapSchema}
-      onSubmit={handleSubmit}
+      onSubmit={(values, actions) => {
+        alert(JSON.stringify(values, null, 2));
+        actions.setSubmitting(false);
+      }}
     >
       {({ isSubmitting, handleChange, setValues, values }) => (
         <styles.Main>

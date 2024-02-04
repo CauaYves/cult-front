@@ -6,7 +6,7 @@ import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 const handleSubmit = (
   values: FormikValuesTypes,
-  { setSubmitting }: FormikHelpers<FormikValuesTypes>
+  { setSubmitting }: FormikHelpers<boolean>
 ) => {
   console.log("Formulário enviado:", { values });
   setSubmitting(false);
@@ -24,7 +24,6 @@ const handleInputChange = async (
       const cep = await getCep(value);
 
       setValues((prevValues: FormikValuesTypes) => {
-        // Criar um novo objeto mantendo as propriedades existentes
         const updatedValues: FormikValuesTypes = {
           ...prevValues,
           cep: value,

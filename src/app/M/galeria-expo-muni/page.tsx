@@ -43,18 +43,22 @@ export default function GaleriaExpoMuni() {
           <HeaderButton
             text="Cadastro de expositores"
             setValue={() => setSelectedModule("Cadastrodeexpositores")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Cadastro de expositores e reservas"
             setValue={() => setSelectedModule("Cadastrodeexpositoresereservas")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Agenda de exposições"
             setValue={() => setSelectedModule("Agendadeexposicoes")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Controle de contribuições"
             setValue={() => setSelectedModule("Controledecontribuicoes")}
+            selectedModule={selectedModule}
           />
         </MainHeader>
         {organismObjects[selectedModule]}

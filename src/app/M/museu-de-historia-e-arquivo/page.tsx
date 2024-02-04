@@ -41,24 +41,28 @@ export default function MuseuHistArq() {
         <MainHeader>
           <HeaderButton
             text="Cadastro básico"
-            isSelected={true}
             setValue={() => setSelectedModule("Cadastrobasico")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Acervo físico"
             setValue={() => setSelectedModule("Acervofisico")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Cadastro de catalogação"
             setValue={() => setSelectedModule("Cadastrodecatalogacao")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Acervo digital"
             setValue={() => setSelectedModule("Acervodigital")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Controle de Contribuições"
             setValue={() => setSelectedModule("ControledeContribuicoes")}
+            selectedModule={selectedModule}
           />
         </MainHeader>
         {organismObjects[selectedModule]}

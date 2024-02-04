@@ -46,22 +46,27 @@ export default function Credenciamento() {
           <HeaderButton
             text="Cadastro de editais e inscrições"
             setValue={() => setSelectedModule("Cadastrodeeditaiseinscricoes")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Publicações"
             setValue={() => setSelectedModule("Publicacoes")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Avaliações e Pareceres"
             setValue={() => setSelectedModule("AvaliacoesePareceres")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Prestação de Contas"
             setValue={() => setSelectedModule("PrestaçãodeContas")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Atos Legais"
             setValue={() => setSelectedModule("AtosLegais")}
+            selectedModule={selectedModule}
           />
         </MainHeader>
         {organismObjects[selectedModule]}

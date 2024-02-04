@@ -44,22 +44,27 @@ export default function BibliotecaMuni() {
           <HeaderButton
             text="Cadastro de leitores"
             setValue={() => setSelectedModule("Cadastrodeleitores")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Cadastro de acervo"
             setValue={() => setSelectedModule("Cadastrodeacervo")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Cadastro de reserva de livros"
             setValue={() => setSelectedModule("Cadastrodereservadelivros")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Controle de empréstimos"
             setValue={() => setSelectedModule("Controledeemprestimos")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Biblioteca móvel"
             setValue={() => setSelectedModule("Bibliotecamovel")}
+            selectedModule={selectedModule}
           />
         </MainHeader>
         {organismObjects[selectedModule]}

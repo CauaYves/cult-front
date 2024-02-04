@@ -41,20 +41,23 @@ export default function MapaCultReg() {
         <MainHeader>
           <HeaderButton
             text="Cadastro de eventos"
-            $isSelected={true}
             setValue={() => setSelectedModule("Cadastrodeeventos")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Cadastro de espaços"
             setValue={() => setSelectedModule("Cadastrodeespacos")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Agentes"
             setValue={() => setSelectedModule("Agentes")}
+            selectedModule={selectedModule}
           />
           <HeaderButton
             text="Projetos"
             setValue={() => setSelectedModule("Projetos")}
+            selectedModule={selectedModule}
           />
         </MainHeader>
         {organismObjects[selectedModule]}
