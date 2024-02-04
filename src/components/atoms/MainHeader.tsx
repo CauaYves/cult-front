@@ -1,10 +1,16 @@
 import styled from "styled-components";
 import colors from "@/constants/colors";
-function MainHeader({ children }: any) {
-  return <Main>{children}</Main>;
+import React from "react";
+
+interface MainHeaderProps {
+  children: React.ReactNode
 }
 
-const Main = styled.div`
+const MainHeader: React.FC<MainHeaderProps> = ({ children }) => {
+  return <MainHeaderStyled>{children}</MainHeaderStyled>;
+}
+
+const MainHeaderStyled = styled.div`
   background-color: ${colors.fifty};
   box-shadow: 1px 1px 10px #00000022;
 

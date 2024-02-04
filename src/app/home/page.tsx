@@ -8,6 +8,7 @@ import home from "public/icon_home.svg";
 import brush from "public/icon_brush.svg";
 import pointer from "public/icon_pointermap.svg";
 import { Modules } from "@/components/molecules";
+import breakpoint from "@/styles/breakpoint";
 
 const DashboardPage = () => {
   return (
@@ -47,19 +48,23 @@ const DashboardPage = () => {
 
 const ModulesWrapper = styled.div`
   max-width: 1200px;
-  height: 65dvh;
   margin: 40px auto;
 `;
 
 const SubContainer = styled.div`
   height: 200px;
-
   display: flex;
   flex-wrap: wrap;
   align-items: end;
   justify-content: space-around;
 
   margin-top: 100px;
+
+  @media (max-width: ${breakpoint}) {
+    width: 100%;
+    height: auto;
+    margin-top: 0px;
+  }
 `;
 
 export default DashboardPage;

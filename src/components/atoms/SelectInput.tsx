@@ -1,8 +1,14 @@
-import { useField } from "formik";
+import { FieldHookConfig, useField } from "formik";
 import { Select, MenuItem, InputLabel, FormControl } from "@mui/material";
+import React from "react";
 
-const SelectInput = ({ label, ...props }: any) => {
-  const [field, meta, helpers] = useField(props);
+interface SelectInputProps {
+  label: string;
+  props: FieldHookConfig<SelectInputProps>;
+}
+
+const SelectInput = ({ label, ...props }: SelectInputProps) => {
+  const [field, _meta, helpers] = useField(props.props);
 
   const handleChange = (event: any) => {
     helpers.setValue(event.target.value);

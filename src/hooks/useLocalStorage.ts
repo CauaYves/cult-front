@@ -1,9 +1,15 @@
-"use client"
-import { useState } from 'react';
-import Cookies from 'js-cookie';
+import { useState, Dispatch, SetStateAction } from "react";
+import Cookies from "js-cookie";
 
-export default function useLocalStorage(key: any, initialValue: any) {
-  const [storedValue, setStoredValue] = useState(() => {
+type SetValue<T> = T | ((prevValue: T) => T);
+
+type UseLocalStorageReturn<T> = [T, Dispatch<SetStateAction<T>>, () => void];
+
+export default function useLocalStorage<T>(
+  key: string,
+  initialValue: T
+): UseLocalStorageReturn<T> {
+  const [storedValue, setStoredValue] = useState<T>(() => {
     try {
       if (typeof window !== "undefined") {
         const item = window.localStorage.getItem(key);
@@ -15,16 +21,13 @@ export default function useLocalStorage(key: any, initialValue: any) {
     return initialValue;
   });
 
-  const setValue = (value: any) => {
+  const setValue = (value: SetValue<T>) => {
     try {
-      const valueToStore = value instanceof Function ? value(storedValue) : value;
+      const valueToStore =
+        value instanceof Function ? (value as Function)(storedValue) : value;
       setStoredValue(valueToStore);
-      // if (typeof window !== "undefined") {
-      //   window.localStorage.setItem(key, JSON.stringify(valueToStore));
-      //   Cookies.set(key, JSON.stringify(valueToStore));
-      // }
       window.localStorage.setItem(key, JSON.stringify(valueToStore));
-          Cookies.set(key, JSON.stringify(valueToStore));
+      Cookies.set(key, JSON.stringify(valueToStore));
     } catch (error) {
       console.log(error);
     }
@@ -32,11 +35,8 @@ export default function useLocalStorage(key: any, initialValue: any) {
 
   const removeValue = () => {
     try {
-    //   if (typeof window !== "undefined") {
-    //     window.localStorage.removeItem(key);
-    //     Cookies.remove(key);
-    window.localStorage.removeItem(key);
-    Cookies.remove(key);
+      window.localStorage.removeItem(key);
+      Cookies.remove(key);
     } catch (error) {
       console.log(error);
     }

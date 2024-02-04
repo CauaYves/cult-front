@@ -26,7 +26,7 @@ export default function Home() {
 
   async function successOrFailLogin() {
     const response = await login({ code: userCode, password });
-    const token = response.token;
+    const token = response?.token;
     if (token) {
       setToken(token);
       toast.success("Login realizado com sucesso!");
@@ -126,10 +126,11 @@ const Main = styled.main`
 `;
 
 const LoginBox = styled.div`
-  width: 400px;
+  max-width: 400px;
+  width: 90vw;
   height: 400px;
   background-color: #fcfcfcb5;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 1px 9px 13px #0000002b;
 `;
 
@@ -167,6 +168,9 @@ const InputWrapper = styled.div`
       position: absolute;
       top: 7px;
       left: 35px;
+      @media (max-width: ${breakpoint}) {
+        left: 30x;
+      }
     }
     input {
       height: 40px;

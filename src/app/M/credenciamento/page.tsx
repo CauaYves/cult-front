@@ -3,16 +3,28 @@ import DashboardLayout from "@/layout/Dashboard";
 import styled from "styled-components";
 import { MainHeader } from "@/components/atoms";
 import list from "public/icon_list.svg";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { DataForm, UnderConstruction } from "@/components/organisms";
 import { Title } from "@/components/atoms";
 import { HeaderButton } from "@/components/molecules/";
 
 export default function Credenciamento() {
-  const [selectedModule, setSelectedModule] = useState(
+  type OrganismKeys =
+    | "Cadastrodeagentesculturais"
+    | "Cadastrodeeditaiseinscricoes"
+    | "AvaliacoesePareceres"
+    | "Publicacoes"
+    | "PrestaçãodeContas"
+    | "AtosLegais";
+
+  const [selectedModule, setSelectedModule] = useState<OrganismKeys>(
     "Cadastrodeagentesculturais"
   );
-  const organismObjects: any = {
+
+  interface OrganismObjects {
+    [key: string]: ReactNode;
+  }
+  const organismObjects: OrganismObjects = {
     Cadastrodeagentesculturais: <DataForm allowFiles={true} />,
     Cadastrodeeditaiseinscricoes: <UnderConstruction />,
     Publicacoes: <UnderConstruction />,

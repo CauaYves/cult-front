@@ -4,14 +4,27 @@ import styled from "styled-components";
 import { MainHeader } from "@/components/atoms";
 import { HeaderButton } from "@/components/molecules/";
 import brush from "public/icon_brush.svg";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { UnderConstruction } from "@/components/organisms";
 import { Title } from "@/components/atoms";
 import { DataForm } from "@/components/organisms";
 
 export default function GaleriaExpoMuni() {
-  const [selectedModule, setSelectedModule] = useState("Cadastrodeexpositores");
-  const organismObjects: any = {
+  type OrganismKeys =
+    | "Cadastrodeexpositores"
+    | "Cadastrodeexpositoresereservas"
+    | "Agendadeexposicoes"
+    | "Controledecontribuicoes";
+
+  const [selectedModule, setSelectedModule] = useState<OrganismKeys>(
+    "Cadastrodeexpositores"
+  );
+
+  interface OrganismObjects {
+    [key: string]: ReactNode;
+  }
+
+  const organismObjects: OrganismObjects = {
     Cadastrodeexpositores: <DataForm allowFiles={true} />,
     Cadastrodeexpositoresereservas: <UnderConstruction />,
     Agendadeexposicoes: <UnderConstruction />,

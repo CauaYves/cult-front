@@ -1,14 +1,20 @@
 import styled from "styled-components";
 import breakpoint from "@/styles/breakpoint";
+import { Dispatch, SetStateAction } from "react";
 
-function HeaderButton({ text, setValue }: any) {
+interface HeaderButtonProps {
+  text: string;
+  setValue: Dispatch<SetStateAction<string>>;
+}
+
+function HeaderButton({ text, setValue }: HeaderButtonProps) {
   return (
     <Main
       onClick={() => {
         setValue(text);
       }}
     >
-      <h3>{text}</h3>
+      <p>{text}</p>
     </Main>
   );
 }
@@ -35,9 +41,6 @@ const Main = styled.div`
     white-space: nowrap;
   }
 
-  h3 {
-    font-size: 12px;
-  }
   &:active {
     opacity: 0.9;
   }

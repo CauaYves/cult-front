@@ -35,7 +35,7 @@ function Navbar() {
         <Right>
           <Link href="/M/em-construcao">
             <p>Suporte</p>
-            <Image src={suport} alt="suporte" />
+            <Image src={suport} alt="suporte-image" />
           </Link>
           <LogoutButton onClick={logout}>
             <p>Sair</p>

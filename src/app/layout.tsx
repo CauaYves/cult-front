@@ -9,7 +9,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
+      <meta
+        name="description"
+        content="breve descrição do sistema para fins SEO"
+      />
+      <title>Culturalize</title>
       <ResetStyle />
       <FileContextProvider>
         <body>

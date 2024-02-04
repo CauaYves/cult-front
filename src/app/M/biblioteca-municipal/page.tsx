@@ -4,18 +4,32 @@ import styled from "styled-components";
 import { MainHeader } from "@/components/atoms";
 import { HeaderButton } from "@/components/molecules/";
 import book from "public/icon_book.svg";
-import { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { UnderConstruction } from "@/components/organisms";
 import { Title } from "@/components/atoms";
 import { DataForm } from "@/components/organisms";
 
 export default function BibliotecaMuni() {
-  const [selectedModule, setSelectedModule] = useState("Cadastrodeleitores");
-  const organismObjects: any = {
+  type OrganismKeys =
+    | "Cadastrodeleitores"
+    | "Cadastrodeacervo"
+    | "Cadastrodereservadelivros"
+    | "Controledeemprestimos"
+    | "Bibliotecamovel";
+
+  const [selectedModule, setSelectedModule] =
+    useState<OrganismKeys>("Cadastrodeleitores");
+
+  interface OrganismObjects {
+    [key: string]: ReactNode;
+  }
+
+  const organismObjects: OrganismObjects = {
     Cadastrodeleitores: <DataForm allowFiles={false} />,
     Cadastrodeacervo: <UnderConstruction />,
     Cadastrodereservadelivros: <UnderConstruction />,
     Controledeemprestimos: <UnderConstruction />,
+    Bibliotecamovel: <UnderConstruction />,
   };
 
   return (

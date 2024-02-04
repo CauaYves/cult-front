@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-function Title({ title, subtitle, icon }: any) {
+type TitlePros = {
+  title: string;
+  subtitle: string;
+  icon: string;
+};
+
+function Title({ title, subtitle, icon }: TitlePros) {
   return (
     <Main>
       <Image src={icon} alt={title} height={"20"} priority={true} />

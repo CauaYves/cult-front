@@ -1,6 +1,6 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import Image from "next/image";
-import { Formik, Field } from "formik";
+import { Formik, Field, FormikValues, FormikHelpers } from "formik";
 import { Button, FormLabel } from "@mui/material";
 import { formValidationSchema } from "@/schemas/form-validation-schema";
 import { useFileContext } from "../../contexts/FileContext";
@@ -10,12 +10,31 @@ import Link from "next/link";
 import { FileInputComponent, FileRow } from "../molecules";
 import { handleInputChange } from "@/components/utils";
 import { styles, fields } from "@/components/molecules";
-function DataForm({ allowFiles }: any) {
+
+type DataFormProps = {
+  allowFiles: boolean;
+};
+
+export interface FormikValuesTypes {
+  rg: string;
+  cpf: string;
+  cep: string;
+  city: string;
+  state: string;
+  phone: string;
+  street: string;
+  username: string;
+  birthDate: string;
+  classPerson: string;
+  neighborhood: string;
+  issuingState: string;
+}
+function DataForm({ allowFiles }: DataFormProps) {
   const { files, setFiles } = useFileContext();
 
   const handleSubmit = async (
-    values: any,
-    { setSubmitting }: any
+    values: FormikValues,
+    { setSubmitting }: FormikHelpers<FormikValuesTypes>
   ): Promise<void> => {
     console.log("Formulário enviado:", { values, files });
 
@@ -71,9 +90,9 @@ function DataForm({ allowFiles }: any) {
                   <Field
                     name={field.name}
                     as={field.component}
-                    variant={field.variant}
+                    variant="outlined"
                     type={field.type}
-                    onChange={(e: any) =>
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
                       handleInputChange(e, handleChange, setValues, values)
                     }
                   />

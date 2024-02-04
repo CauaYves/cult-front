@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import colors from "@/constants/colors";
 import { Navbar } from "@/components/organisms";
+import { ReactNode } from "react";
 
-export default function Dashboard({ children }: any) {
+export default function Dashboard({ children }: { children: ReactNode }) {
   return (
     <Content>
       <Navbar />

@@ -1,46 +1,67 @@
 import { getCep } from "@/app/api/cep";
+import { AxiosError } from "axios";
+import { FormikValuesTypes } from "../organisms/Form";
+import { FormikHelpers } from "formik";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
-const handleSubmit = (values: any, { setSubmitting }: any) => {
-    console.log("Formulário enviado:", { values });
-    setSubmitting(false);
+const handleSubmit = (
+  values: FormikValuesTypes,
+  { setSubmitting }: FormikHelpers<FormikValuesTypes>
+) => {
+  console.log("Formulário enviado:", { values });
+  setSubmitting(false);
 };
+const handleInputChange = async (
+  e: ChangeEvent<HTMLInputElement>,
+  handleChange: (e: ChangeEvent<HTMLInputElement>) => void,
+  setValues: any,
+  values: any
+) => {
+  const { value } = e.target;
+  handleChange(e);
+  if (!value.includes("_")) {
+    try {
+      const cep = await getCep(value);
 
-const handleInputChange = async (e: any, handleChange: any, setValues: any, values: any) => {
-    const { value } = e.target;
-    handleChange(e);
-    if (!value.includes("_")) {
-        try {
-            const cep = await getCep(value);
-            const {issuingState, cpf, rg, username, phone, street, classPerson, birthDate, eventName, eventDate} = values
-            setValues({
-                cep: value,
-                city: cep.cidade,
-                state: cep.uf,
-                neighborhood: cep.bairro,
-                issuingState,
-                cpf,
-                rg,
-                username, 
-                phone,
-                street,
-                classPerson,
-                birthDate,
-                eventName,
-                eventDate
-            });
-        } catch (error) {
-            console.error("Erro ao obter informações do CEP", error);
-        }
+      setValues((prevValues: FormikValuesTypes) => {
+        // Criar um novo objeto mantendo as propriedades existentes
+        const updatedValues: FormikValuesTypes = {
+          ...prevValues,
+          cep: value,
+          city: cep.cidade,
+          state: cep.uf,
+          neighborhood: cep.bairro,
+        };
+
+        // Adicionar as propriedades adicionadas manualmente
+        // Isso permite que você use setValues diretamente sem modificar initialValues
+        Object.assign(updatedValues, {
+          issuingState: values.issuingState,
+          cpf: values.cpf,
+          rg: values.rg,
+          username: values.username,
+          phone: values.phone,
+          street: values.street,
+          classPerson: values.classPerson,
+          birthDate: values.birthDate,
+          eventName: values.eventName,
+          eventDate: values.eventDate,
+        });
+
+        return updatedValues;
+      });
+    } catch (error: Error | AxiosError | unknown) {
+      console.error("Erro ao obter informações do CEP", error);
     }
+  }
 };
 
-function formatString(input: any) {
-  const withoutSpaces = input.replace(/\s+/g, '');
+function formatString(input: string) {
+  const withoutSpaces = input.replace(/\s+/g, "");
 
-  const withoutSpecialsCharacteres = withoutSpaces.replace(/[^\w\s]/gi, '');
+  const withoutSpecialsCharacteres = withoutSpaces.replace(/[^\w\s]/gi, "");
 
   return withoutSpecialsCharacteres;
 }
 
-  export {handleInputChange, handleSubmit, formatString}
-
+export { handleInputChange, handleSubmit, formatString };

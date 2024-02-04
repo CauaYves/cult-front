@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { Formik, Field } from "formik";
 import { culturalMapSchema } from "@/schemas/form-validation-schema";
 import { ToastContainer } from "react-toastify";
@@ -49,6 +49,7 @@ function CulturalMapForm() {
           <styles.FormWrapper>
             <styles.FormContainer>
               <styles.Block>
+                {/* TODO ADICIONAR OS DOIS INPUTS AO OBJETO DE INPUTS, DINAMICAMENTE */}
                 <styles.FormControlStyled>
                   <FormLabel>Data do evento</FormLabel>
                   <Field name="eventDate" as={DateInput} variant="outlined" />
@@ -69,7 +70,7 @@ function CulturalMapForm() {
                     as={field.component}
                     variant={field.variant}
                     type={field.type}
-                    onChange={(e: any) =>
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
                       handleInputChange(e, handleChange, setValues, values)
                     }
                   />

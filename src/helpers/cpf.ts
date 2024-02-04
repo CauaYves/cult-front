@@ -1,4 +1,4 @@
-export function cleanCpf(cpf: any) {
-    const cleanedCpf = cpf.replace(/[^\d]/g, "");
-    return cleanedCpf
+export function cleanCpf(cpf: string) {
+  const cleanedCpf = cpf.replace(/[^\d]/g, "");
+  return cleanedCpf;
 }

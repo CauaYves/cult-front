@@ -1,6 +1,13 @@
 import styled from "styled-components";
+import { FileContextProps } from "@/contexts/FileContext";
 
-function FileRow({ id, name, extension, files, setFiles }: any) {
+interface fileRowProps extends FileContextProps {
+  id: number;
+  name: string;
+  extension: string;
+}
+
+function FileRow({ id, name, extension, files, setFiles }: fileRowProps) {
   const bar = extension.indexOf("/");
   let type = extension.substring(0, bar);
   let format = extension.substring(bar + 1, extension.length);

@@ -4,14 +4,26 @@ import styled from "styled-components";
 import { MainHeader } from "@/components/atoms";
 import pointermap from "public/icon_pointermap.svg";
 import { HeaderButton } from "@/components/molecules/";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { UnderConstruction } from "@/components/organisms";
 import { Title } from "@/components/atoms";
 import { CulturalMapForm } from "@/components/organisms/CulturalMapForm";
 
 export default function MapaCultReg() {
-  const [selectedModule, setSelectedModule] = useState("Cadastrodeeventos");
-  const organismObjects: any = {
+  type OrganismKeys =
+    | "Cadastrodeeventos"
+    | "Cadastrodeespacos"
+    | "Agentes"
+    | "Projetos";
+
+  const [selectedModule, setSelectedModule] =
+    useState<OrganismKeys>("Cadastrodeeventos");
+
+  interface OrganismObjects {
+    [key: string]: ReactNode;
+  }
+
+  const organismObjects: OrganismObjects = {
     Cadastrodeeventos: <CulturalMapForm />,
     Cadastrodeespacos: <UnderConstruction />,
     Agentes: <UnderConstruction />,

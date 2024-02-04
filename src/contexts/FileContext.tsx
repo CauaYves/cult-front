@@ -6,14 +6,14 @@ import React, {
   SetStateAction,
 } from "react";
 
-interface File {
+type File = {
   name: string;
   size: number;
   type: string;
   lastModified: Date;
-}
+};
 
-interface FileContextProps {
+export interface FileContextProps {
   files: File[];
   setFiles: Dispatch<SetStateAction<File[]>>;
 }

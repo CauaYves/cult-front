@@ -2,7 +2,7 @@
 import DashboardLayout from "@/layout/Dashboard";
 import styled from "styled-components";
 import { MainHeader } from "@/components/atoms";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { Title } from "@/components/atoms";
 import { UnderConstruction } from "@/components/organisms";
 import { DataForm } from "@/components/organisms";
@@ -10,8 +10,19 @@ import { HeaderButton } from "@/components/molecules/";
 import home from "public/icon_home.svg";
 
 export default function MuseuHistArq() {
-  const [selectedModule, setSelectedModule] = useState("Cadastrobasico");
-  const organismObjects: any = {
+  type OrganismKeys =
+    | "Cadastrobasico"
+    | "Acervofisico"
+    | "Cadastrodecatalogacao"
+    | "Acervodigital"
+    | "ControledeContribuicoes";
+
+  const [selectedModule, setSelectedModule] =
+    useState<OrganismKeys>("Cadastrobasico");
+  interface OrganismObjects {
+    [key: string]: ReactNode;
+  }
+  const organismObjects: OrganismObjects = {
     Cadastrobasico: <DataForm allowFiles={false} />,
     Acervofisico: <UnderConstruction />,
     Cadastrodecatalogacao: <UnderConstruction />,

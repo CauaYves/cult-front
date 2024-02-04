@@ -1,10 +1,11 @@
+import { AxiosError } from "axios"
 import api from "./api"
 
-export async function getCep(cep: any) {
+export async function getCep(cep: string) {
     try{        
         const promise = await api.get(`/enrollment/cep?cep=${cep}`)
         return promise.data
-    }catch(error) {
-        console.log("cep inserido está incorreto!")
+    } catch(error: Error | AxiosError | unknown) {
+        console.log("cep inserido está incorreto ", error)
     }
 }
