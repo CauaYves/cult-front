@@ -2,7 +2,7 @@ import { FieldHookConfig, useField } from "formik";
 import { Select, MenuItem, FormControl } from "@mui/material";
 
 const SelectInput = ({ ...props }: FieldHookConfig<string>) => {
-  const [field, meta, helpers] = useField(props);
+  const [field, _meta, helpers] = useField(props);
 
   return (
     <FormControl>

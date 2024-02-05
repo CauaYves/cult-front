@@ -1,13 +1,12 @@
 "use client";
 import DashboardLayout from "@/layout/Dashboard";
 import styled from "styled-components";
-import { MainHeader } from "@/components/atoms";
 import pointermap from "public/icon_pointermap.svg";
-import { HeaderButton } from "@/components/molecules/";
 import { ReactNode, useState } from "react";
 import { UnderConstruction } from "@/components/organisms";
 import { Title } from "@/components/atoms";
 import { CulturalMapForm } from "@/components/organisms/CulturalMapForm";
+import { Button } from "@mui/material";
 
 export default function MapaCultReg() {
   type OrganismKeys =
@@ -29,7 +28,15 @@ export default function MapaCultReg() {
     Agentes: <UnderConstruction />,
     Projetos: <UnderConstruction />,
   };
-
+  const buttonsStyles = {
+    background: "white",
+    color: "black",
+    height: "40px",
+    width: "190px",
+    lineHeight: "normal",
+    margin: "0px 5px 5px 0px",
+    fontSize: "12px",
+  };
   return (
     <DashboardLayout>
       <Main>
@@ -39,26 +46,34 @@ export default function MapaCultReg() {
           icon={pointermap}
         />
         <MainHeader>
-          <HeaderButton
-            text="Cadastro de eventos"
-            setValue={() => setSelectedModule("Cadastrodeeventos")}
-            selectedModule={selectedModule}
-          />
-          <HeaderButton
-            text="Cadastro de espaços"
-            setValue={() => setSelectedModule("Cadastrodeespacos")}
-            selectedModule={selectedModule}
-          />
-          <HeaderButton
-            text="Agentes"
-            setValue={() => setSelectedModule("Agentes")}
-            selectedModule={selectedModule}
-          />
-          <HeaderButton
-            text="Projetos"
-            setValue={() => setSelectedModule("Projetos")}
-            selectedModule={selectedModule}
-          />
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("Cadastrodeeventos")}
+          >
+            PrestaçãodeContas
+          </Button>
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("Cadastrodeespacos")}
+          >
+            Cadastro de espacos
+          </Button>
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("Agentes")}
+          >
+            Agentes
+          </Button>
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("Projetos")}
+          >
+            Projetos
+          </Button>
         </MainHeader>
         {organismObjects[selectedModule]}
       </Main>
@@ -69,4 +84,17 @@ export default function MapaCultReg() {
 const Main = styled.div`
   width: 100vw;
   padding-top: 40px;
+`;
+
+const MainHeader = styled.div`
+  background-color: #0a194f;
+
+  max-width: 1200px;
+  width: 100vw;
+
+  margin: auto;
+
+  padding: 20px 10px;
+
+  border-radius: 5px;
 `;

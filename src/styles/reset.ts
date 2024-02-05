@@ -49,48 +49,17 @@ const ResetStyle = createGlobalStyle`
 	}
 	a{
 		text-decoration: none;
+		color: inherit;
 	}
-	input{
+	input, button{
 		outline: 0;
 		border: none;
 	}
 	html, body, #root{
 		height: 100%;
 	}
-	button{
-		outline: 0;
-		border: none;
-	}
 
-	/* tipografria */
-	h1{
-		color: #0A194F;
-		font-size: 17px;
-		font-weight: 800;
-	}
-	h2{
-		font-family: Inter;
-		font-size: 14.13px;
-		font-style: normal;
-		font-weight: 800;
-		line-height: normal;
-	}
-	p{
-		color: #555353;
-		font-size: 11.636px;
-		font-weight: 300;
-	}
-	a{
-		color: black;
-	}
-	/* tipografia */
-
-	/* reset para navegadores */
-	
-
-	/* Para navegadores baseados no Chromium (como o Google Chrome) */
-		/* Cor de fundo do autocomplete */
-/* Para todos os navegadores */
+		/* Para todos os navegadores */
 		input:-webkit-autofill,
 		input:-webkit-autofill:hover, 
 		input:-webkit-autofill:focus,

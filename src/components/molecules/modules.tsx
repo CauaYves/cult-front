@@ -4,6 +4,7 @@ import colors from "@/constants/colors";
 import breakpoint from "@/styles/breakpoint";
 import Link from "next/link";
 import arrow from "public/icon_arrow.svg";
+import { H4, H5 } from "../atoms/typography";
 
 interface ModulesProps {
   route: string;
@@ -16,10 +17,10 @@ function Modules({ route, moduleName, icon }: ModulesProps) {
     <Main href={route}>
       <InfoModule>
         <Image src={icon} alt={moduleName}></Image>
-        <h2>{moduleName}</h2>
+        <H5>{moduleName}</H5>
       </InfoModule>
       <BottomModule>
-        <p>ir</p>
+        <H4>ir</H4>
         <Image src={arrow} alt="ir para" />
       </BottomModule>
     </Main>
@@ -61,9 +62,9 @@ const InfoModule = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: baseline;
-  h2 {
+
+  h5 {
     text-align: center;
-    color: ${colors.font};
   }
 
   @media (max-width: ${breakpoint}) {
@@ -73,11 +74,8 @@ const InfoModule = styled.div`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    h2 {
-      font-size: 10px;
-      text-align: center;
-      max-width: 50%;
-      color: ${colors.font};
+    h5 {
+      width: 50%;
     }
   }
 `;
@@ -92,7 +90,7 @@ const BottomModule = styled.div`
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 
-  p {
+  h4 {
     color: white;
   }
 

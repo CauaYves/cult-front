@@ -1,7 +1,7 @@
 "use client";
 import StyledComponentsRegistry from "@/lib/registry";
 import { FileContextProvider } from "@/contexts/FileContext";
-import ResetStyle from "../styles/index";
+import ResetStyle from "../styles/reset";
 
 export default function RootLayout({
   children,
@@ -10,10 +10,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <meta
-        name="description"
-        content="breve descrição do sistema para fins SEO"
-      />
+      <head>
+        <meta
+          name="description"
+          content="breve descrição do sistema para fins SEO"
+        />
+      </head>
+
       <title>Culturalize</title>
       <ResetStyle />
       <FileContextProvider>

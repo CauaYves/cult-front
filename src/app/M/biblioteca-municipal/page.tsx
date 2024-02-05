@@ -1,13 +1,12 @@
 "use client";
 import DashboardLayout from "@/layout/Dashboard";
 import styled from "styled-components";
-import { MainHeader } from "@/components/atoms";
-import { HeaderButton } from "@/components/molecules/";
 import book from "public/icon_book.svg";
 import React, { ReactNode, useState } from "react";
 import { UnderConstruction } from "@/components/organisms";
 import { Title } from "@/components/atoms";
 import { DataForm } from "@/components/organisms";
+import { Button } from "@mui/material";
 
 export default function BibliotecaMuni() {
   type OrganismKeys =
@@ -17,6 +16,15 @@ export default function BibliotecaMuni() {
     | "Controledeemprestimos"
     | "Bibliotecamovel";
 
+  const buttonsStyles = {
+    background: "white",
+    color: "black",
+    height: "40px",
+    width: "190px",
+    lineHeight: "normal",
+    margin: "0px 5px 5px 0px",
+    fontSize: "12px",
+  };
   const [selectedModule, setSelectedModule] =
     useState<OrganismKeys>("Cadastrodeleitores");
 
@@ -41,31 +49,41 @@ export default function BibliotecaMuni() {
           icon={book}
         />
         <MainHeader>
-          <HeaderButton
-            text="Cadastro de leitores"
-            setValue={() => setSelectedModule("Cadastrodeleitores")}
-            selectedModule={selectedModule}
-          />
-          <HeaderButton
-            text="Cadastro de acervo"
-            setValue={() => setSelectedModule("Cadastrodeacervo")}
-            selectedModule={selectedModule}
-          />
-          <HeaderButton
-            text="Cadastro de reserva de livros"
-            setValue={() => setSelectedModule("Cadastrodereservadelivros")}
-            selectedModule={selectedModule}
-          />
-          <HeaderButton
-            text="Controle de empréstimos"
-            setValue={() => setSelectedModule("Controledeemprestimos")}
-            selectedModule={selectedModule}
-          />
-          <HeaderButton
-            text="Biblioteca móvel"
-            setValue={() => setSelectedModule("Bibliotecamovel")}
-            selectedModule={selectedModule}
-          />
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("Bibliotecamovel")}
+          >
+            Biblioteca móvel
+          </Button>
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("Cadastrodeacervo")}
+          >
+            Cadastro de acervo
+          </Button>
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("Cadastrodeleitores")}
+          >
+            Cadastro de leitores
+          </Button>
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("Cadastrodereservadelivros")}
+          >
+            Cadastro de reserva de livros
+          </Button>
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("Controledeemprestimos")}
+          >
+            Controle de empréstimos
+          </Button>
         </MainHeader>
         {organismObjects[selectedModule]}
       </Main>
@@ -76,4 +94,16 @@ export default function BibliotecaMuni() {
 const Main = styled.div`
   width: 100vw;
   padding-top: 40px;
+`;
+const MainHeader = styled.div`
+  background-color: #0a194f;
+
+  max-width: 1200px;
+  width: 100vw;
+
+  margin: auto;
+
+  padding: 20px 10px;
+
+  border-radius: 5px;
 `;

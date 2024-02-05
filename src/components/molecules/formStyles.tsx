@@ -102,9 +102,9 @@ const styles = {
   `,
 
   ButtonWrapper: styled.div`
+    margin-top: 50px;
     display: flex;
-    justify-content: end;
-    margin-top: 10px;
+    justify-content: space-between;
   `,
 
   AbsoluteContainer: styled.div`

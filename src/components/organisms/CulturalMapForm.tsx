@@ -2,13 +2,12 @@ import React, { ChangeEvent } from "react";
 import { Formik, Field } from "formik";
 import { culturalMapSchema } from "@/schemas/form-validation-schema";
 import { ToastContainer } from "react-toastify";
-import Link from "next/link";
-import blackarrow from "../../../public/icon_blackarrow.svg";
-import Image from "next/image";
 import { DateInput } from "../atoms";
 import { TextField, Button, FormLabel, Typography } from "@mui/material";
 import { fields, styles } from "@/components/molecules";
-import { handleInputChange, handleSubmit } from "@/components/utils";
+import { handleInputChange } from "@/components/utils";
+import ArrowBack from "@mui/icons-material/ArrowBack";
+import Link from "next/link";
 
 function CulturalMapForm() {
   return (
@@ -81,8 +80,10 @@ function CulturalMapForm() {
                 </styles.FormControlStyled>
               ))}
             </styles.FormContainer>
-            <br />
             <styles.ButtonWrapper>
+              <Link href="/home">
+                <Button startIcon={<ArrowBack />}>Voltar</Button>
+              </Link>
               <Button
                 variant="contained"
                 type="submit"
@@ -92,12 +93,6 @@ function CulturalMapForm() {
                 Salvar
               </Button>
             </styles.ButtonWrapper>
-            <styles.AbsoluteContainer>
-              <Link href="/home">
-                <Image src={blackarrow} alt="Voltar" />
-                <h3>Voltar</h3>
-              </Link>
-            </styles.AbsoluteContainer>
           </styles.FormWrapper>
         </styles.Main>
       )}

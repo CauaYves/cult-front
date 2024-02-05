@@ -1,12 +1,11 @@
 "use client";
 import DashboardLayout from "@/layout/Dashboard";
 import styled from "styled-components";
-import { MainHeader } from "@/components/atoms";
 import list from "public/icon_list.svg";
 import { ReactNode, useState } from "react";
 import { DataForm, UnderConstruction } from "@/components/organisms";
 import { Title } from "@/components/atoms";
-import { HeaderButton } from "@/components/molecules/";
+import { Button } from "@mui/material";
 
 export default function Credenciamento() {
   type OrganismKeys =
@@ -32,42 +31,63 @@ export default function Credenciamento() {
     PrestaçãodeContas: <UnderConstruction />,
     AtosLegais: <UnderConstruction />,
   };
+  const buttonsStyles = {
+    background: "white",
+    color: "black",
+    height: "40px",
+    width: "190px",
+    lineHeight: "normal",
+    margin: "0px 5px 5px 0px",
+    fontSize: "12px",
+  };
 
   return (
     <DashboardLayout>
       <Main>
         <Title title={"CREDENCIAMENTO"} subtitle={selectedModule} icon={list} />
         <MainHeader>
-          <HeaderButton
-            text="Cadastro de agentes culturais"
-            setValue={() => setSelectedModule("Cadastrodeagentesculturais")}
-            selectedModule={selectedModule}
-          />
-          <HeaderButton
-            text="Cadastro de editais e inscrições"
-            setValue={() => setSelectedModule("Cadastrodeeditaiseinscricoes")}
-            selectedModule={selectedModule}
-          />
-          <HeaderButton
-            text="Publicações"
-            setValue={() => setSelectedModule("Publicacoes")}
-            selectedModule={selectedModule}
-          />
-          <HeaderButton
-            text="Avaliações e Pareceres"
-            setValue={() => setSelectedModule("AvaliacoesePareceres")}
-            selectedModule={selectedModule}
-          />
-          <HeaderButton
-            text="Prestação de Contas"
-            setValue={() => setSelectedModule("PrestaçãodeContas")}
-            selectedModule={selectedModule}
-          />
-          <HeaderButton
-            text="Atos Legais"
-            setValue={() => setSelectedModule("AtosLegais")}
-            selectedModule={selectedModule}
-          />
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("Cadastrodeagentesculturais")}
+          >
+            Cadastro de agentes culturais
+          </Button>
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("Cadastrodeeditaiseinscricoes")}
+          >
+            Cadastro de editais e inscricoes
+          </Button>
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("Publicacoes")}
+          >
+            Publicacoes
+          </Button>
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("AvaliacoesePareceres")}
+          >
+            Avaliações e Pareceres
+          </Button>
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("PrestaçãodeContas")}
+          >
+            PrestaçãodeContas
+          </Button>
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("AtosLegais")}
+          >
+            AtosLegais
+          </Button>
         </MainHeader>
         {organismObjects[selectedModule]}
       </Main>
@@ -78,4 +98,16 @@ export default function Credenciamento() {
 const Main = styled.div`
   width: 100vw;
   padding-top: 40px;
+`;
+const MainHeader = styled.div`
+  background-color: #0a194f;
+
+  max-width: 1200px;
+  width: 100vw;
+
+  margin: auto;
+
+  padding: 20px 10px;
+
+  border-radius: 5px;
 `;

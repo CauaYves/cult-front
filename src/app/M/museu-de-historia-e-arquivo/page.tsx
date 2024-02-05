@@ -1,13 +1,12 @@
 "use client";
 import DashboardLayout from "@/layout/Dashboard";
 import styled from "styled-components";
-import { MainHeader } from "@/components/atoms";
 import { ReactNode, useState } from "react";
 import { Title } from "@/components/atoms";
 import { UnderConstruction } from "@/components/organisms";
 import { DataForm } from "@/components/organisms";
-import { HeaderButton } from "@/components/molecules/";
 import home from "public/icon_home.svg";
+import { Button } from "@mui/material";
 
 export default function MuseuHistArq() {
   type OrganismKeys =
@@ -30,6 +29,16 @@ export default function MuseuHistArq() {
     ControledeContribuicoes: <UnderConstruction />,
   };
 
+  const buttonsStyles = {
+    background: "white",
+    color: "black",
+    height: "40px",
+    width: "190px",
+    lineHeight: "normal",
+    margin: "0px 5px 5px 0px",
+    fontSize: "12px",
+  };
+
   return (
     <DashboardLayout>
       <Main>
@@ -39,31 +48,41 @@ export default function MuseuHistArq() {
           icon={home}
         />
         <MainHeader>
-          <HeaderButton
-            text="Cadastro básico"
-            setValue={() => setSelectedModule("Cadastrobasico")}
-            selectedModule={selectedModule}
-          />
-          <HeaderButton
-            text="Acervo físico"
-            setValue={() => setSelectedModule("Acervofisico")}
-            selectedModule={selectedModule}
-          />
-          <HeaderButton
-            text="Cadastro de catalogação"
-            setValue={() => setSelectedModule("Cadastrodecatalogacao")}
-            selectedModule={selectedModule}
-          />
-          <HeaderButton
-            text="Acervo digital"
-            setValue={() => setSelectedModule("Acervodigital")}
-            selectedModule={selectedModule}
-          />
-          <HeaderButton
-            text="Controle de Contribuições"
-            setValue={() => setSelectedModule("ControledeContribuicoes")}
-            selectedModule={selectedModule}
-          />
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("Cadastrobasico")}
+          >
+            Cadastro básico
+          </Button>
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("Acervofisico")}
+          >
+            Acervo físico
+          </Button>
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("Cadastrodecatalogacao")}
+          >
+            Cadastro de catalogacão
+          </Button>
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("Acervodigital")}
+          >
+            Acervo digital
+          </Button>
+          <Button
+            variant="contained"
+            style={buttonsStyles}
+            onClick={() => setSelectedModule("ControledeContribuicoes")}
+          >
+            Controle de Contribuicões
+          </Button>
         </MainHeader>
         {organismObjects[selectedModule]}
       </Main>
@@ -74,4 +93,17 @@ export default function MuseuHistArq() {
 const Main = styled.div`
   width: 100vw;
   padding-top: 40px;
+`;
+
+const MainHeader = styled.div`
+  background-color: #0a194f;
+
+  max-width: 1200px;
+  width: 100vw;
+
+  margin: auto;
+
+  padding: 20px 10px;
+
+  border-radius: 5px;
 `;

@@ -15,7 +15,7 @@ function HeaderButton({ text, setValue }: HeaderButtonProps) {
         setValue(text);
       }}
     >
-      <p>{text}</p>
+      <>{text}</>
     </Main>
   );
 }

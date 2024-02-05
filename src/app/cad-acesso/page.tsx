@@ -218,9 +218,4 @@ const ButtonWrapper = styled.div`
 const CopyWrapper = styled.div`
   position: absolute;
   bottom: 0px;
-  @media (max-width: ${breakpoint}) {
-    p {
-      font-size: 2vw;
-    }
-  }
 `;
